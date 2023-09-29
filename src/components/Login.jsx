@@ -34,7 +34,6 @@ const Login = () => {
                       }).then(() => {
                         const {uid , email , displayName} = auth.currentUser;
                         dispatch(addUser({uid , email , displayName}));
-                        navigate('/browse')
                       }).catch((error) => {
                         throw error
                       });
@@ -47,11 +46,7 @@ const Login = () => {
             // signin logic
             signInWithEmailAndPassword(auth, email.current.value , password.current.value)
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
-                console.log(user)
-                navigate('/browse')
-                // ...
             })
             .catch((error) => {
                 const errorCode = error.code;
